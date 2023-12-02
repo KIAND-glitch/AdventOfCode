@@ -1,7 +1,3 @@
-input = open("input.txt", "r")
-
-input_lines = input.readlines()
-
 word_to_number = {
     'one': 1,
     'two': 2,
@@ -37,29 +33,29 @@ def identifyStringNumbers(string):
 
     return result
 
+def findFirstDigit(sentence):
+    for ch in sentence:
+        if ch.isdigit():
+            return ch
 
+def main():
+    input = open("input.txt", "r")
+    input_lines = input.readlines()
 
-sum = 0
+    part_one = part_two = 0
 
-for line in input_lines:
-    # print(line)
-    first = last = -1
-    line = identifyStringNumbers(line)
-    # print(line)
-    for element in range(0, len(line)):
-        if(line[element].isdigit()):
-            # print('first digit is', i[element])
-            first = line[element]
-            break
-    for element in range(len(line)-1, -1, -1):
-        if(line[element].isdigit()):
-            # print('last digit is', i[element])
-            last = line[element]
-            break
-    if(first == -1 or last == -1):
-        print(first, last)
-    # print('number is ', str(first)+str(last))
-    # print()
-    sum += int(str(first)+str(last))
+    for line in input_lines:
+        first = findFirstDigit(line)
+        last = findFirstDigit(line[::-1])
+        part_one += int(str(first)+str(last))
 
-print('sum is', sum)
+        identifiedNumbersLine = identifyStringNumbers(line)
+        first = findFirstDigit(identifiedNumbersLine)
+        last = findFirstDigit(identifiedNumbersLine[::-1])
+        part_two += int(str(first)+str(last))       
+
+    print('part_one', part_one)
+    print('part_one', part_two)
+
+if __name__ == "__main__":
+    main()
