@@ -57,5 +57,21 @@ def main():
     print('part_one', part_one)
     print('part_one', part_two)
 
+    # Test cases
+    # test_cases = [
+    #     "two1nine",
+    #     "eightwothree",
+    #     "abcone2threexyz",
+    #     "xtwone3four",
+    #     "4nineeightseven2",
+    #     "zoneight234",
+    #     "7pqrstsixteen"
+    # ]
+
+    # for test_case in test_cases:
+    #     result = identifyStringNumbers(test_case)
+    #     print(f"Original: {test_case} | Result: {result}")
+
+
 if __name__ == "__main__":
     main()
